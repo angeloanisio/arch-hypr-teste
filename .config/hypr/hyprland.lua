@@ -29,8 +29,8 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "nemo"
-local menu        = "wofi --show drun"
+local fileManager = "kitty --class yazi yazi"
+local menu        = "rofi -show drun"
 local browser	  = "firefox"
 
 -------------------
@@ -43,11 +43,12 @@ local browser	  = "firefox"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function ()
-   hl.exec_cmd(terminal)
-   hl.exec_cmd("nm-applet")
-   hl.exec_cmd("waybar & hyprpaper")
-    end)
-
+--   hl.exec_cmd(terminal)
+   hl.exec_cmd("waybar")
+   hl.exec_cmd("mako")
+   hl.exec_cmd("wl-paste --watch cliphist store")
+   hl.exec_cmd("swaybg -i /home/abcd/wallpapers/default.jpg -m fill")
+end)
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -88,11 +89,11 @@ hl.config({
         gaps_in  = 5,
         gaps_out = 10,
 
-        border_size = 2,
+        border_size = 1,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = { colors = {"rgba(b7bdf8ee)", "rgba(c6a0f6ee)"}, angle = 45 },
+            inactive_border = "rgba(494d64aa)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -109,8 +110,8 @@ hl.config({
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
-        active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        active_opacity   = 0.85,
+        inactive_opacity = 0.55,
 
         shadow = {
             enabled      = true,
@@ -121,7 +122,7 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 3,
+            size      = 5,
             passes    = 1,
             vibrancy  = 0.1696,
         },
@@ -264,6 +265,18 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+-- Nemo ainda disponível
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("nemo"))
+
+-- Menu de energia
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("wlogout"))
+
+-- Histórico de cópias
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd('cliphist list | rofi -dmenu | cliphist decode | wl-copy'))
+
+-- Screenshots (área selecionada)
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd('mkdir -p ~/Pictures && grim -g "$(slurp)" ~/Pictures/$(date +%s).png'))
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -346,6 +359,12 @@ hl.window_rule({
 --     no_anim = true,
 -- })
 -- overlayLayerRule:set_enabled(false)
+
+hl.layer_rule({
+    name  = "waybar-blur",
+    match = { namespace = "^waybar$" },
+    blur  = true,
+})
 
 -- Hyprland-run windowrule
 hl.window_rule({

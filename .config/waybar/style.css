@@ -32,26 +32,19 @@
 }
 
 window#waybar {
-  /* border: 1px solid alpha(@blue, 0.85); */
-  background-color: alpha(@base, 0.75);
-  /* border-radius: 0 0 0.2rem 0.2rem; */
-  border-radius: 0;
+  background-color: transparent;
   color: @sapphire;
-  padding: 2px 12px;
-  /* background-color: transparent; */
   transition: 0.3s all;
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-  /* border: 2px solid alpha(@blue, 0.85); */
-  /* background-color: alpha(@base, 0.75); */
-  /* border-radius: 8px;
-  padding: 2px 12px; */
-  padding: 0 1rem;
+  background-color: alpha(@surface0, 0.45);
+  border: 1px solid alpha(@lavender, 0.35);
+  border-radius: 14px;
+  padding: 2px 14px;
   color: @sapphire;
-  border: none;
 }
 
 .modules-center {
@@ -94,21 +87,30 @@ window#waybar {
   border-bottom: 1px solid @blue;
 }
 
+#workspaces button {
+  padding: 0 8px;
+  color: @overlay1;
+  border-radius: 10px;
+  border-bottom: 1px solid transparent;
+  transition: 0.2s ease-out;
+}
+
 #workspaces button.active {
-  border-bottom: 1px solid @yellow;
-  color: @yellow;
+  color: @blue;
+  background-color: alpha(@blue, 0.2);
+  border-bottom: 1px solid transparent;
 }
 
 #tray {
   color: @sapphire;
 }
 
-#cpu.warning { 
+#cpu.warning {
 color: @peach;
 }
 
-#cpu.critical { 
-color: @red; 
+#cpu.critical {
+color: @red;
 }
 
 #memory.warning {
@@ -127,3 +129,9 @@ color: @red;
 #clock:hover {
   color: @yellow;
 }
+#network { color: @sapphire; }
+#pulseaudio { color: @sapphire; }
+#backlight { color: @peach; }
+#battery { color: @green; }
+#battery.warning { color: @peach; }
+#battery.critical { color: @red; }
