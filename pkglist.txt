@@ -6,6 +6,7 @@ bat
 breeze-icons
 brightnessctl
 btop
+calcurse
 cliphist
 eog
 eza
@@ -66,6 +67,7 @@ xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 yazi
 zed
+zenity
 zoxide
 zram-generator
 zsh

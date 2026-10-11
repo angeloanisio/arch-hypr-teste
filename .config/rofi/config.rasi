@@ -1,0 +1,83 @@
+
+//@theme "/usr/share/rofi/themes/DarkBlue.rasi"
+
+@theme "/usr/share/rofi/themes/glue_pro_blue.rasi"
+
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    drun-display-format: "{name}";
+    display-drun: "";
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+* {
+    base:    #24273a33;
+    surface: #363a4f00;
+    text:    #cad3f5;
+    subtext: #a5adcb;
+    accent:  #8aadf4;
+    background-color: transparent;
+    text-color: @text;
+}
+
+window {
+    width: 520px;
+    background-color: @base;
+    border: 1px;
+    border-color: #b7bdf859;
+    border-radius: 14px;
+}
+
+mainbox {
+    padding: 12px;
+    spacing: 10px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: @surface;
+    border-radius: 10px;
+    padding: 10px 14px;
+    spacing: 8px;
+    children: [ prompt, entry ];
+}
+
+prompt { text-color: @accent; }
+
+entry {
+    placeholder: "Buscar...";
+    placeholder-color: @subtext;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    spacing: 4px;
+    scrollbar: false;
+    fixed-height: true;
+    border: 0px;
+}
+
+element {
+    padding: 8px 10px;
+    spacing: 10px;
+    border-radius: 10px;
+}
+
+element selected.normal {
+    background-color: #8aadf433;
+    text-color: @accent;
+}
+
+element-icon {
+    size: 28px;
+    vertical-align: 0.5;
+    background-color: transparent;
+}
+
+element-text { 
+    vertical-align: 0.5;
+    background-color: transparent;
+}
