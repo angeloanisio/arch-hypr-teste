@@ -40,6 +40,7 @@ network-manager-applet
 networkmanager
 noto-fonts
 nwg-look
+pacman-contrib
 papirus-icon-theme
 pavucontrol
 pipewire
@@ -49,6 +50,7 @@ pipewire-pulse
 poppler
 qt5ct
 qt6ct
+reflector
 ripgrep
 rofi
 slurp
@@ -56,6 +58,7 @@ starship
 stow
 sudo
 swaybg
+tlp
 ttf-jetbrains-mono-nerd
 vlc
 vlc-plugins-all
