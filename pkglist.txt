@@ -6,6 +6,7 @@ bat
 breeze-icons
 brightnessctl
 btop
+cage
 calcurse
 cliphist
 eog
@@ -17,6 +18,9 @@ fzf
 gammastep
 git
 github-cli
+greetd
+greetd-regreet
+greetd-tuigreet
 grim
 grub
 gst-plugin-pipewire
@@ -38,6 +42,7 @@ nano
 nemo
 network-manager-applet
 networkmanager
+noctalia
 noto-fonts
 nwg-look
 pacman-contrib

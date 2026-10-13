@@ -44,11 +44,12 @@ local browser	  = "firefox"
 --
 hl.on("hyprland.start", function ()
 --   hl.exec_cmd(terminal)
-   hl.exec_cmd("waybar")
-   hl.exec_cmd("mako")
+--   hl.exec_cmd("waybar")
+--   hl.exec_cmd("mako")
    hl.exec_cmd("wl-paste --watch cliphist store")
    hl.exec_cmd("swaybg -i /home/abcd/wallpapers/default.jpg -m fill")
 end)
+     hl.exec_cmd("noctalia")
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
